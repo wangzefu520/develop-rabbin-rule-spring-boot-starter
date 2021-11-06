@@ -1,0 +1,39 @@
+{
+  "groups": [
+    {
+      "name": "develop.env",
+      "type": "com.gyouzhe.develop.balance.DevelopLoadBalanceProperties",
+      "sourceType": "com.gyouzhe.develop.balance.DevelopLoadBalanceProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "develop.env.enable",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.gyouzhe.develop.balance.DevelopLoadBalanceProperties",
+      "description": "enable develop env balance",
+      "defaultValue": "false"
+    },
+    {
+      "name": "develop.env.key",
+      "type": "java.lang.String",
+      "sourceType": "com.gyouzhe.develop.balance.DevelopLoadBalanceProperties",
+      "description": "metadata key,use to flag the develop env",
+      "defaultValue": "cloud-develop"
+    },
+    {
+      "name": "develop.env.primaryValue",
+      "type": "java.lang.String",
+      "sourceType": "com.gyouzhe.develop.balance.DevelopLoadBalanceProperties",
+      "description": "metadata primary value,use to flag the develop env",
+      "defaultValue": null
+    },
+    {
+      "name": "develop.env.backValue",
+      "type": "java.lang.String",
+      "sourceType": "com.gyouzhe.develop.balance.DevelopLoadBalanceProperties",
+      "description": "metadata back value,when primary value not exists use to flag the develop env",
+      "defaultValue": null
+    }
+  ]
+}
