@@ -6,6 +6,7 @@ import com.netflix.loadbalancer.AbstractLoadBalancerRule;
 import com.netflix.loadbalancer.ILoadBalancer;
 import com.netflix.loadbalancer.RandomRule;
 import com.netflix.loadbalancer.Server;
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ReflectionUtils;
@@ -71,12 +72,26 @@ public class DevelopRule extends AbstractLoadBalancerRule {
                         Map<String, String> metadata = (Map<String, String>) obj;
                         if (metadata.containsKey(this.key)) {
                             String metadataValue = metadata.get(this.key);
-                            if (StringUtils.equals(filterValue, metadataValue)) {
-                                return server;
+                            if (StringUtils.contains(filterValue, ",")) {
+                                String[] filters = StringUtils.split(filterValue, ",");
+                                if (ArrayUtils.contains(filters, metadataValue)) {
+                                    return server;
+                                }
+                            } else {
+                                if (StringUtils.equals(filterValue, metadataValue)) {
+                                    return server;
+                                }
                             }
                             if (StringUtils.isNotBlank(backValue)) {
-                                if (StringUtils.equals(backValue, metadataValue)) {
-                                    backServer = server;
+                                if (StringUtils.contains(backValue, ",")) {
+                                    String[] filters = StringUtils.split(backValue, ",");
+                                    if (ArrayUtils.contains(filters, metadataValue)) {
+                                        return server;
+                                    }
+                                } else {
+                                    if (StringUtils.equals(backValue, metadataValue)) {
+                                        backServer = server;
+                                    }
                                 }
                             }
                         }

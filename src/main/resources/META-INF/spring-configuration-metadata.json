@@ -25,14 +25,14 @@
       "name": "develop.env.primaryValue",
       "type": "java.lang.String",
       "sourceType": "com.gyouzhe.develop.balance.DevelopLoadBalanceProperties",
-      "description": "metadata primary value,use to flag the develop env",
+      "description": "metadata primary value,use to flag the develop env,more then one use ,split",
       "defaultValue": null
     },
     {
       "name": "develop.env.backValue",
       "type": "java.lang.String",
       "sourceType": "com.gyouzhe.develop.balance.DevelopLoadBalanceProperties",
-      "description": "metadata back value,when primary value not exists use to flag the develop env",
+      "description": "metadata back value,when primary value not exists use to flag the develop env,more then one use ,split",
       "defaultValue": null
     }
   ]
